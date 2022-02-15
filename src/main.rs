@@ -167,9 +167,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_neural_network_works_on_test_image() {
-        static IMAGE: &[u8] = include_bytes!("../test_image.png");
+    fn test_neural_network_works_on_test_image_1() {
+        static IMAGE: &[u8] = include_bytes!("../test_image_1.png");
         let result = parse_asm_from_image(&IMAGE);
         assert_eq!(result, "RBX + 0x10");
+    }
+
+    #[test]
+    fn test_neural_network_works_on_test_image_2() {
+        static IMAGE: &[u8] = include_bytes!("../test_image_2.png");
+        let result = parse_asm_from_image(&IMAGE);
+        assert_eq!(result, "RSP + 0x8");
     }
 }
